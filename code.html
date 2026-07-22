@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Simple Counter</h2>
+<h1 id="count">0</h1>
+
+<button onclick="increase()">+</button>
+<button onclick="decrease()">-</button>
+
+<script>
+let count = 0;
+
+function increase() {
+    count++;
+    document.getElementById("count").innerHTML = count;
+}
+
+function decrease() {
+    count--;
+    document.getElementById("count").innerHTML = count;
+}
+</script>
+
+</body>
+</html>
