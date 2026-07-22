@@ -1,5 +1,5 @@
 <?php
-$rootPath = dirname(__DIR__);
+// group2/sidebar.php
 $currentPage = basename($_SERVER['PHP_SELF']);
 $links = [
     ['Dashboard', 'dashboard.php', '🏠'],
@@ -14,20 +14,25 @@ $links = [
 ];
 ?>
 <aside class="sidebar">
-    <div class="brand">
-        <div class="brand-logo">SA</div>
-        <div>
-            <h3>Student Activity</h3>
-            <p>Assessment System</p>
+    <div>
+        <div class="brand">
+            <div class="brand-logo">SA</div>
+            <div>
+                <h3>Student Activity</h3>
+                <p>Assessment System</p>
+            </div>
         </div>
+        <nav class="nav-links">
+            <?php foreach ($links as $link): ?>
+                <?php $href = $link[1]; ?>
+                <a href="<?php echo $href; ?>" class="nav-link<?php echo ($currentPage === $link[1]) ? ' active' : ''; ?>">
+                    <span><?php echo $link[2]; ?></span>
+                    <span><?php echo $link[0]; ?></span>
+                </a>
+            <?php endforeach; ?>
+        </nav>
     </div>
-    <nav class="nav-links">
-        <?php foreach ($links as $link): ?>
-            <?php $href = $rootPath . '/faculty/' . $link[1]; ?>
-            <a href="<?php echo $href; ?>" class="nav-link<?php echo ($currentPage === $link[1]) ? ' active' : ''; ?>">
-                <span><?php echo $link[2]; ?></span>
-                <span><?php echo $link[0]; ?></span>
-            </a>
-        <?php endforeach; ?>
-    </nav>
+    <div style="font-size: 0.75rem; color: var(--text-secondary); text-align: center; padding-top: 1rem; border-top: 1px solid var(--card-border);">
+        Group 2 • Faculty Portal v2.0
+    </div>
 </aside>
